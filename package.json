@@ -1,0 +1,26 @@
+{
+  "name": "it-walker-tool",
+  "version": "1.0.0",
+  "description": "this is tool library for it-walker",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyyjjj666/walker-library.git"
+  },
+  "author": "it-walker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yyyjjj666/walker-library/issues"
+  },
+  "homepage": "https://github.com/yyyjjj666/walker-library#readme",
+  "dependencies": {
+    "moment": "^2.21.0",
+    "colors-cli": "^1.0.13",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
+    "ioredis": "^3.2.2"
+  }
+}
