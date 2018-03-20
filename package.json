@@ -1,6 +1,6 @@
 {
   "name": "it-walker-tool",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "this is tool library for it-walker",
   "main": "src/index.js",
   "scripts": {

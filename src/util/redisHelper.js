@@ -1,13 +1,6 @@
 const Redis = require('ioredis');
 
 class redisHelper {
-    // {
-    //     port: 750,          // Redis port
-    //     host: '39.106.27.231',   // Redis host
-    //     family: 4,           // 4 (IPv4) or 6 (IPv6)
-    //     password: '~*ddc*pro*~',
-    //     db: 2
-    // };
     constructor(conf) {
         this.redis = new Redis(conf);
     }
