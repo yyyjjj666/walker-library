@@ -1,9 +1,5 @@
 ```
-<<<<<<< HEAD
 npm install --save it-walker-tool
-=======
-npm npm install --save it-walker-tool
->>>>>>> d283dcefb3e31356d39fae933b7be6864781df28
 ```
 ## 日志组件
 日志组件初始化有2个参数"日志根目录地址"和"日志等级",有四个方法 writeInfo,writeErr,writeWarn,writeDebug
