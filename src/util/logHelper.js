@@ -2,9 +2,9 @@
 const fs = require('fs');
 const moment = require('moment');
 const platform = require('os').platform();//'darwin', 'freebsd', 'linux', 'sunos' , 'win32'
-const color = require('colors-cli');
+const color = require('colors-cli/safe');
 
-class logHelper {
+class log {
     constructor(baseDir) {
         if (platform === "win32") {
             this.baseDir = baseDir + "\\logs\\";
@@ -29,18 +29,23 @@ class logHelper {
 
     writeLog(type, log) {
         let key = moment().format("YYYYMMDDHH");
+        let colorParam = {};
         switch (type) {
             case "Info":
                 this.path = this.baseDir + `Info`;
+                colorParam = color.cyan.bold;
                 break;
             case "Err":
                 this.path = this.baseDir + `Err`;
+                colorParam = color.red.bold;
                 break;
             case "Warn":
                 this.path = this.baseDir + `Warn`;
+                colorParam = color.yellow.bold;
                 break;
             default:
                 this.path = this.baseDir + `Debug`;
+                colorParam = color.green.bold;
                 break;
         }
         this.checkAndCreateDir(this.path);
@@ -48,6 +53,8 @@ class logHelper {
             this.path += `\\${key}.log`;
         } else
             this.path += `/${key}.log`;
+        log = `[${moment().format("YYYY-MM-DD HH:mm:ss.ms")}] [${type}] [${log}]`;
+        console.log(colorParam(log));
         // 写入文件内容（如果文件不存在会创建一个文件）
         // 传递了追加参数 { 'flag': 'a' }
         fs.writeFile(this.path, log + "\n", {'flag': 'a'}, function (err) {
@@ -58,9 +65,9 @@ class logHelper {
     }
 }
 
-class logHelper_public extends logHelper {
+class logHelper_public extends log {
     constructor(baseDir, log_level) {
-        const level = [["Info"], ["Info", "Err"], ["Info", "Err", "Warn"], ["Info", "Err", "Warn", "Debug"]];
+        const level = [["Err"], ["Info", "Err"], ["Info", "Err", "Warn"], ["Info", "Err", "Warn", "Debug"]];
         super(baseDir);
         if (log_level)
             this.log_level = log_level;
@@ -76,28 +83,24 @@ class logHelper_public extends logHelper {
     writeErr(log) {
         if (this.level.includes('Err')) {
             this.writeLog("Err", log);
-            console.log(color.red(log));
         }
     }
 
     writeInfo(log) {
         if (this.level.includes('Info')) {
             this.writeLog("Info", log);
-            console.log(color.cyan_bt(log));
         }
     }
 
     writeWarn(log) {
         if (this.level.includes('Warn')) {
             this.writeLog("Warn", log);
-            console.log(color.yellow_bt(log));
         }
     }
 
     writeDebug(log) {
         if (this.level.includes('Debug')) {
             this.writeLog("Debug", log);
-            console.log(color.green(log));
         }
     }
 }

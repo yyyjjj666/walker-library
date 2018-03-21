@@ -5,7 +5,7 @@ class http {
 
     }
 
-    PostParam(url, param) {
+    postParam(url, param) {
         let options = {
             method: 'POST',
             uri: url,
@@ -15,7 +15,7 @@ class http {
         return rp(options);
     }
 
-    HttpGet(url) {
+    httpGet(url) {
         let options = {
             uri: url,
             headers: {

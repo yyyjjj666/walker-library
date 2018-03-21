@@ -21,7 +21,7 @@ class checkJson {
     }
 
     checkIsExists(key) {
-        return !(this.json[key] === undefined || this.json[key] === undefined)
+        return !(this.json[key] === null || this.json[key] === undefined)
     }
 }
 

@@ -8,7 +8,4 @@ let path = require('path');
 let baseDir = path.resolve(__dirname, '..');
 
 let log = new index.logHelper(baseDir, 4);
-log.writeInfo("test");
-log.writeErr("test");
-log.writeWarn("test");
 log.writeDebug("test");
