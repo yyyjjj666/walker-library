@@ -5,7 +5,7 @@ npm install --save it-walker-tool
 日志组件初始化有2个参数"日志根目录地址"和"日志等级",有四个方法 writeInfo,writeErr,writeWarn,writeDebug
 日志组件产生文本日志，并输出展示到CLI，Info(蓝色) Err(红色) Warn(黄色) Debug(绿色)
 ```
-日志等级为1 输出Info
+日志等级为1 输出Err
 日志等级为2 输出Info、Err
 日志等级为3 输出Info、Err、Warn
 日志等级为4 输出Info、Err、Warn、Debug
