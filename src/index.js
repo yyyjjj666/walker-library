@@ -3,5 +3,6 @@ module.exports = {
     checkParam: require('./util/checkParam'),
     httpHelper: require('./util/httpHelper'),
     redisHelper: require('./util/redisHelper'),
-    mysqlHelper: require('./util/mysqlHelper')
+    mysqlHelper: require('./util/mysqlHelper'),
+    base64: require('./util/base64')
 };

@@ -1,6 +1,6 @@
 {
   "name": "it-walker-tool",
-  "version": "1.3.0",
+  "version": "1.7.0",
   "description": "this is tool library for it-walker",
   "main": "src/index.js",
   "scripts": {
@@ -25,5 +25,7 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.37.3"
-  }
+  },
+  "_from": "it-walker-tool@1.6.2",
+  "_resolved": "http://registry.npm.taobao.org/it-walker-tool/download/it-walker-tool-1.6.2.tgz"
 }

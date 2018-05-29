@@ -1,31 +1,36 @@
 const rp = require('request-promise');
 
-class http {
-    constructor() {
+function postParam(url, param) {
+    let options = {
+        method: 'POST',
+        uri: url,
+        body: param,
+        json: true // Automatically stringifies the body to JSON
+    };
+    return rp(options);
+}
 
-    }
-
-    postParam(url, param) {
-        let options = {
-            method: 'POST',
-            uri: url,
-            body: param,
-            json: true // Automatically stringifies the body to JSON
-        };
-        return rp(options);
-    }
-
-    httpGet(url) {
-        let options = {
-            uri: url,
+function httpGet(param) {
+    let options ;
+    if(typeof(param)===typeof("")){
+         options = {
+            uri: param,
             headers: {
                 'User-Agent': 'Request-Promise'
             },
             json: true // Automatically parses the JSON string in the response
         };
-
-        return rp(options)
+    }else{
+         options = {
+            uri: param.url,
+            headers:param.headers,
+            json: true // Automatically parses the JSON string in the response
+        };
     }
+    return rp(options)
 }
 
-module.exports = http;
+module.exports = {
+    postParam,
+    httpGet
+};
